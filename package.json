@@ -1,0 +1,14 @@
+{
+  "name": "2022-02-15-modular-app",
+  "version": "1.0.0",
+  "scripts": {
+    "start": "parcel public/index.html --open",
+    "build": "parcel public/index.html"
+  },
+  "devDependencies": {
+    "parcel-bundler": "^1.12.5"
+  },
+  "dependencies": {
+    "axios": "^0.26.0"
+  }
+}
