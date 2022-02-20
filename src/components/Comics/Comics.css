@@ -8,8 +8,7 @@
   justify-content: space-between;
   border: 3px solid yellowgreen;
   width: 250px;
-  margin: 20px;
-  /* margin: var(--spacing-large); */
+  margin: var(--spacing-large);
 
   transition: 0.5s;
   background-color: var(--color-light);
@@ -27,4 +26,3 @@
 .comics__img {
   width: 100%;
 }
-
