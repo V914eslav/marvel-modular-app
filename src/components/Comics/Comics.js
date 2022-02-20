@@ -6,8 +6,10 @@ import {
   IMG_STANDARD_XLARGE,
   IMG_NOT_AVAILABLE,
 } from "../../constants/api.js";
-import "./Comics.css";
 import { ROOT_INDEX } from "../../constants/root";
+import classes from "./Comics.css";
+
+console.log(classes);
 
 class Comics {
   async render() {
@@ -19,13 +21,13 @@ class Comics {
         const uri = API_URL + URL_COMICS + "/" + id + "/" + URL_CHARACTERS;
         const imgSrc = path + "/" + IMG_STANDARD_XLARGE + "." + extension;
 
-        htmlContent += `<li class="comics__item" data-uri="${uri}">
-        <span class="comics__name">${title}</span>
-        <img class="comics__img" src ="${imgSrc}"/>
+        htmlContent += `<li class="comics__item ${classes.comics__item}" data-uri="${uri}">
+        <span class="${classes.comics__name}">${title}</span>
+        <img class="img-contian ${classes.comics__img}" src ="${imgSrc}"/>
         </li>`;
       }
     });
-    const htmlWrapper = `<ul class="comics__container">
+    const htmlWrapper = `<ul class="${classes.comics__container}">
     ${htmlContent}</ul>`;
     ROOT_INDEX.innerHTML = htmlWrapper;
   }
