@@ -9,22 +9,20 @@ import { getDataApi } from "../../utils/getDataApi.js";
 import { ROOT_INDEX } from "../../constants/root";
 
 import Error from "../Error";
+import Characters from "../Characters";
 
 import classes from "./Comics.css";
-
-console.log(classes);
 
 class Comics {
   renderComics(data) {
     let htmlContent = "";
-
     data.forEach(({ id, title, thumbnail: { extension, path } }) => {
       if (path.lastIndexOf(IMG_NOT_AVAILABLE) === -1) {
         const uri = API_URL + URL_COMICS + "/" + id + "/" + URL_CHARACTERS;
         const imgSrc = path + "/" + IMG_STANDARD_XLARGE + "." + extension;
 
         htmlContent += `<li class="comics__item ${classes.comics__item}" data-uri="${uri}">
-        <span class="${classes.comics__name}">${title}</span>
+        <span class="${classes.comics__name}">${title} </span>
         <img class="img-contian ${classes.comics__img}" src ="${imgSrc}"/>
         </li>`;
       }
@@ -41,7 +39,7 @@ class Comics {
     document.querySelectorAll(".comics__item").forEach((element) => {
       const uri = element.getAttribute("data-uri");
       element.addEventListener("click", () => {
-        console.log(uri);
+        Characters.render(uri);
       });
     });
   }
